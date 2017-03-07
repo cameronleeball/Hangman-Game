@@ -1,0 +1,76 @@
+Hangman 
+
+
+Vars:
+Array of possible words : [lorem, ipsum, etc.]
+Variable for selected word
+
+Scoreboard Vars:
+
+Variable for misses
+Variable for remaining guesses
+Variable for remaining letters to solve
+Variable for successfully guessed letters
+Variable for successfully solved words
+
+Hangman Limbs Vars:
+Variable for head
+Variable for neck
+Variable for torso
+Variable for left arm
+Variable for right arm
+Variable for left leg
+Variable for right leg
+Variable for left foot
+Variable for right foot
+
+
+
+Functions:
+
+	main {
+	
+		function to check if (start = true) {
+		}
+		function for (help) {
+			exit to return to start menu
+		}
+	
+		if started: {
+		wordToSolve = randomly selected word from array of possible words
+		letters = [of the individual letters of wordToSolve] (use .split)
+		
+		display wtsBlanks = to wordToSolve.length
+		
+		prompt for user interaction{
+		check if userKey matches any letter in wordToSolve
+			if yes = reveal letter
+			update scorecard
+		}
+	}
+
+
+
+
+
+
+
+
+
+
+
+
+
+UI elements: 
+
+Title/Logo
+
+To start game, hit ‘enter’; 
+For rules, type ‘Help’;
+	To Star, hit ‘enter’; 
+
+Hangman graphic 
+
+Word to solve:  ex: (_ _ _ _ _ _ _)
+
+Score 
