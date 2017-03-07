@@ -11,6 +11,7 @@ var curLetters;
 var difficulty;
 var userGuess = "";
 var score;
+var run;
 
 function help() {
 	alert("Guess the letters to fill in the blanks. After x number of wrong choices, you loose.");
@@ -25,15 +26,19 @@ function setup() {
 		sucGuess:0, 
 		sucWords:0
 	};
+	document.getElementById("userGuess").innerHTML = userGuess;
 	document.getElementById("misses").innerHTML = score.misses;
 	document.getElementById("remLet").innerHTML = score.remLet;
 	document.getElementById("remGuess").innerHTML = score.remGuess;
+	document.getElementById("sucGuess").innerHTML = score.sucGuess;
 	return;
 }
 
 // scoreboard obj
 
+function play() {
 
+}
 
 function normal() {
 	curName = nCharName[Math.floor(Math.random() * nCharName.length)];
@@ -50,7 +55,7 @@ function normal() {
 	document.onkeyup = function(event) {
 		userGuess = event.key;
 		console.log(userGuess);
-		console.log(misses);
+		console.log(score.misses);
 		curLetters.forEach(function(curLetter, i) { 
 			if (curLetter == userGuess)
 				blanks[i] = userGuess; 
@@ -61,19 +66,32 @@ function normal() {
 			score.remGuess = (score.remGuess - 1);
 			document.getElementById("remGuess").innerHTML = score.remGuess;
 			document.getElementById("misses").innerHTML = score.misses;
-			console.log(score.remGuess);
 			console.log(score.misses);
 		}
-		else {
+
+		else if ((curLetters.includes(userGuess)) === true) { 
 			score.remLet = (score.remLet - 1);
+			score.sucGuess = (score.sucGuess + 1);
 			document.getElementById("remLet").innerHTML = score.remLet;
+			document.getElementById("sucGuess").innerHTML = score.sucGuess;
 		}
+
 		document.getElementById("userGuess").innerHTML = userGuess;	
+		if (score.remGuess <= 0) { 
+			alert("OVER THE LINE! Mark it Zero... next frame.");
+
+		}
 	}
+	
 }
 
 
-
+	// while (remGuess >=0) {
+	// 	return true;
+	// 	if (false) {
+	// 		break;
+	// 	}
+	// }
 
 
 
