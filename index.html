@@ -5,6 +5,7 @@
 	<meta charset="utf-8">
 	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css" integrity="sha384-BVYiiSIFeK1dGmJRAkycuHAHRg32OmUcww7on3RYdg4Va+PmSTsz/K68vbdEjh4u" crossorigin="anonymous">
 	<!-- 	<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js" integrity="sha384-Tc5IQib027qvyjSMfHjOMaLkfuWVxZxUPnCJA7l2mCWNIpG9mGCD8wGNIcPD7Txa" crossorigin="anonymous"></script> -->
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 	<script type="text/javascript" src="assets/js/logic.js"></script>
 </head>
 <body>
@@ -24,8 +25,10 @@
 				<h2><span>This isn't 'Nam...</span> it's Hangman...there are rules!</h2>
 				<p>Click 'Help' if you need a refresher.</p>
 				<button id="help" onclick="help()">Help</button>
-				<p>Click 'Start' to play.</p>
-				<button id="start" onclick="normal()">Start!</button>
+				<p>Select a difficulty, then click 'Start' to play!</p>
+				<button id="norm" onclick="setDifN()">Normal</button>
+				<button id="hard" onclick="setDifH()">Hard</button>
+				<div id="startBtn"><button id="start" onclick="play()">Start!</button></div>
 			</div>
 			<div class="col-md-3"></div>
 		</div>
@@ -39,12 +42,13 @@
 				</div>
 				<div class="row">
 					<div id="scoreboard">
-						<div>Your Guess: <span id="userGuess"></span></div>
+						<div>Your Guess: <span id="userGuess"></span></div><div>Already Guessed: <span id="prevLets"></span></div>
 						<ul>
 							<li>Misses: <span id="misses"></span></li>
 							<li>Remaining Letters: <span id="remLet"></span></li>
 							<li>Remaining Guesses: <span id="remGuess"></span></li>
 							<li>Successful Guesses: <span id="sucGuess"></span></li>
+							<li>Total Words Solved: <span id="sucWords"></span></li>
 						</ul>
 					</div>
 				</div>
